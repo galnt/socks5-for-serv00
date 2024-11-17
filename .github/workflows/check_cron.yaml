@@ -3,7 +3,7 @@ name: Execute SSH Commands
 on:
   workflow_dispatch: # 手动触发工作流
   schedule:
-    - cron: "0 * * * *"  # 更改成每整点执行一次
+    - cron: "5,35 * * * *"  # 每小时的第 5 分钟和第 35 分钟执行
 
 jobs:
   execute-commands:
