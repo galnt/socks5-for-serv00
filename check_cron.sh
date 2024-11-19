@@ -30,4 +30,5 @@ else
     (crontab -l | grep -F "@reboot pkill -kill -u $(whoami) && ${CRON_S5}") || (crontab -l; echo "@reboot pkill -kill -u $(whoami) && ${CRON_S5}") | crontab -
     (crontab -l | grep -F "* * pgrep -x \"s5\" > /dev/null || ${CRON_S5}") || (crontab -l; echo "*/12 * * * * pgrep -x \"s5\" > /dev/null || ${CRON_S5}") | crontab -
   fi
+  (crontab -l | grep -F "* * pgrep -f 'run -c config.json' > /dev/null || bash sb_00.sh") || (crontab -l; echo "*/12 * * * * pgrep -f 'run -c config.json' > /dev/null || bash sb_00.sh") | crontab -
 fi
